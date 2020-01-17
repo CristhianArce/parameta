@@ -1,0 +1,11 @@
+com\parameta\model\Empleado_.class
+com\parameta\service\ApplicationConfig.class
+com\parameta\webservice\EmpleadoWebService.class
+com\parameta\controller\EmpleadoJpaController.class
+com\parameta\controller\exceptions\NonexistentEntityException.class
+com\parameta\model\Empleado.class
+com\parameta\model\ExtraData.class
+com\parameta\service\EmpleadoFacadeREST.class
+com\parameta\controller\exceptions\IllegalOrphanException.class
+com\parameta\controller\exceptions\PreexistingEntityException.class
+com\parameta\controller\exceptions\RollbackFailureException.class
