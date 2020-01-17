@@ -48,7 +48,8 @@ public class EmpleadoFacadeREST {
         if (validarFormatoFecha(fecha_nacimiento)
                 && validarFormatoFecha(fecha_vinculacion)
                 && validarMayoriaEdad(stringToDate(fecha_nacimiento))) {
-
+            System.out.println("Fecha nacimiento: " + stringToDate(fecha_nacimiento));
+            System.out.println("Fecha vinculacion: " + stringToDate(fecha_vinculacion));
             Empleado empleado = new Empleado(numero_documento,
                     apellido,
                     nombre,
@@ -60,6 +61,7 @@ public class EmpleadoFacadeREST {
             
             EmpleadoWebService ews = new EmpleadoWebService();
             boolean check = ews.addEmpleado(empleado);
+            System.out.println("CHECK ------> " + check);
             if (check) {
                 List<Integer> lista = new ArrayList<Integer>();
                 lista = fechaNumero(stringToDate(fecha_nacimiento));
@@ -101,8 +103,13 @@ public class EmpleadoFacadeREST {
     }
 
     public boolean validarFormatoFecha(String fecha) {
-        Date date = stringToDate(fecha);
-        return date != null;
+        try{
+            Date date = stringToDate(fecha);
+            return date != null;
+        }catch(Exception e){
+            return false;
+        }
+        
     }
 
     public boolean validarMayoriaEdad(Date fecha) {
@@ -134,6 +141,7 @@ public class EmpleadoFacadeREST {
         lista.add(diff1.getYears());
         lista.add(diff1.getMonths());
         lista.add(diff1.getDays());
+        System.out.println("LISTA -----------------> " + lista);
         return lista;
     }
 
